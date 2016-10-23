@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" class="mmd">
+<head>
+    <meta charset="UTF-8">
+    <title>表格测试</title>
+    <script src="angular.js"></script>
+    <style type="text/css">
+        .mmd{
+            background-color: black;
+        }
+        .table{
+            height: 300px;
+            width: 100%;
+            background-color: #9cadff;
+            border: 1px solid;
+            border-color: #52ffc1;
+			border-collapse:collapse;
+            text-align: left;
+        }
+        .tdcss{
+            border: 1px solid;
+			border-collapse:collapse;
+            height: 50px;
+        }
+        .bt{
+            height: 30px;
+            width: 50px;
+            background-color: #52ffc1;
+        }
+        .tbl{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+    <table class="table">
+        <thead class="thead_css">
+        <tr>
+            <td class="tdcss">fName</td>
+            <td class="tdcss">lName</td>
+            <td class="tdcss">age</td>
+            <td class="tdcss">Action</td>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="user in users" >
+            <td class="tdcss" class="tbl">{{user.fName}}</td>
+            <td class="tdcss"><span editable="text">{{user.lName}}</span></td>
+            <td class="tdcss">{{user.age}}</td>
+            <td class="tdcss"><button class="bt">edit</button><button class="bt">delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <script>
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+           $scope.users = [
+               {fName:'jjj',lName:'aaa',age:'28'},
+               {fName:'jjb',lName:'ama',age:'22'},
+               {fName:'jjc',lName:'taa',age:'20'},
+               {fName:'jjd',lName:'gaa',age:'25'},
+               {fName:'jje',lName:'faa',age:'28'}
+           ]
+        });
+    </script>
+</div>
+
+</body>
+</html>
